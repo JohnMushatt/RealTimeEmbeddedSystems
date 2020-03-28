@@ -1,0 +1,12 @@
+
+**** Clean-only build of configuration Debug for project ece3849d20_lab0_jemushatt ****
+
+"C:\\ti\\ccs930\\ccs\\utils\\bin\\gmake" -k -j 8 clean -O 
+ 
+DEL /F  "ece3849d20_lab0_jemushatt.hex"  "ece3849d20_lab0_jemushatt.out" 
+DEL /F "Crystalfontz128x128_ST7735.obj" "HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.obj" "buttons.obj" "main.obj" "sysctl_pll.obj" "time_display.obj" "tm4c1294ncpdt_startup_ccs.obj" 
+DEL /F "Crystalfontz128x128_ST7735.d" "HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.d" "buttons.d" "main.d" "sysctl_pll.d" "time_display.d" "tm4c1294ncpdt_startup_ccs.d" 
+Finished clean
+ 
+
+**** Build Finished ****

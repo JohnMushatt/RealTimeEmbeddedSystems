@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body>
+	<version>1</version>
+	<timestamp>0x5e7be284</timestamp>
+	<menu>
+		<menu_item option="--opt_for_speed" description="Control Speed vs Size"/>
+		<menu_item option="--opt_level" description="Optimization Level"/>
+	</menu>
+	<chart option="--opt_level" title="Vary Optimization Level" valueLabel="Code Size (bytes)">
+		<bar option_value="0" value="51282" color="cyan"/>
+		<bar option_value="1" value="51184" color="cyan"/>
+		<bar option_value="2" value="51448" color="cyan"/>
+		<bar option_value="3" value="51532" color="red"/>
+		<bar option_value="off" value="52044" color="cyan"/>
+	</chart>
+</body>

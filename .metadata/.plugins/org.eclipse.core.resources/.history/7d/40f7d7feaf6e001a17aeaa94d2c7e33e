@@ -1,0 +1,25 @@
+/*
+ * time_display.c
+ *
+ *  Created on: Mar 25, 2020
+ *      Author: johnm
+ */
+
+
+#include "time_display.h"
+void display_time_standard(float time_in_seconds) {
+
+
+    uint32_t minutes = (uint32_t) time_in_seconds /60;
+    time_in_seconds -= minutes * 60;
+    uint32_t seconds = (uint32_t) (time_in_seconds);
+    time_in_seconds -= seconds;
+    uint32_t ms = (uint32_t) (time_in_seconds) * 10;
+
+    snprintf(time_display_buffer, sizeof(time_display_buffer), "Time = %02u:%02u:%02u", minutes,seconds,ms); // convert time to string
+    GrContextForegroundSet(&sContext, ClrYellow); // yellow text
+    GrStringDraw(&sContext, time_display_buffer, -1,  0, 0,  false);
+    GrFlush(&sContext); // flush the frame buffer to the LCD
+
+
+}
