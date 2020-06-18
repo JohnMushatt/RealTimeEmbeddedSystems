@@ -15,49 +15,46 @@
 #include "driverlib/interrupt.h"
 #include "Crystalfontz128x128_ST7735.h"
 #include "buttons.h"
-#include "time_display.h"
+#include "sampling.h"
+#include "cpu_timer.h"
 #include <stdio.h>
-
 uint32_t gSystemClock; // [Hz] system clock frequency
-volatile uint32_t gTime = 8345; // time in hundredths of a second
 
-int main(void)
-{
-    IntMasterDisable();
+int main(void) {
+	IntMasterDisable();
 
-    // Enable the Floating Point Unit, and permit ISRs to use it
-    FPUEnable();
-    FPULazyStackingEnable();
+	// Enable the Floating Point Unit, and permit ISRs to use it
+	FPUEnable();
+	FPULazyStackingEnable();
 
-    // Initialize the system clock to 120 MHz
-    gSystemClock = SysCtlClockFreqSet(
-            SYSCTL_XTAL_25MHZ | SYSCTL_OSC_MAIN | SYSCTL_USE_PLL
-                    | SYSCTL_CFG_VCO_480,
-            120000000);
+	// Initialize the system clock to 120 MHz
+	gSystemClock = SysCtlClockFreqSet(
+	SYSCTL_XTAL_25MHZ | SYSCTL_OSC_MAIN | SYSCTL_USE_PLL | SYSCTL_CFG_VCO_480,
+			120000000);
 
-    Crystalfontz128x128_Init(); // Initialize the LCD display driver
-    Crystalfontz128x128_SetOrientation(LCD_ORIENTATION_UP); // set screen orientation
+	//cpu load init
+	cpu_load_init();
+	//Display init
+	display_init();
+	//Button init
+	ButtonInit();
+	//PWM init
+	config_pwm();
+	//ADC init
+	init_adc_sampling();
+	IntMasterEnable();
 
-    GrContextInit(&sContext, &g_sCrystalfontz128x128); // Initialize the grlib graphics context
-    GrContextFontSet(&sContext, &g_sFontFixed6x8); // select font
-
-    /**
-     * Timer ISR init
-     */
-    ButtonInit();
-    IntMasterEnable();
-    uint32_t time;  // local copy of gTime
-    // full-screen rectangle
-    tRectangle rectFullScreen = { 0, 0, GrContextDpyWidthGet(&sContext) - 1,
-                                  GrContextDpyHeightGet(&sContext) - 1 };
-
-    while (true)
-    {
-        GrContextForegroundSet(&sContext, ClrBlack);
-        GrRectFill(&sContext, &rectFullScreen); // fill screen with black
-        time = gTime; // read shared global only once
-        display_time_standard((float) time / 100.f);
-        GrFlush(&sContext);
-
-    }
+	while (true) {
+		//Get button input
+		process_button();
+		//Copy to local buffer for processing
+		copy_to_local_buffer();
+		//Update screen
+		display_screen(voltsPerDiv, ts, cpu_load, trigger);
+		/**
+		 * Get cpu load data
+		 */
+		cpu_load_count = get_cpu_load_count();
+		cpu_load = (1.0f - (float)(cpu_load_count)/cpu_unloaded_count) * 100.0f;
+	}
 }

@@ -34,7 +34,8 @@
 
 #define ADC_SAMPLING_RATE 1000000   // [samples/sec] desired ADC sampling rate
 #define CRYSTAL_FREQUENCY 25000000  // [Hz] crystal oscillator frequency used to calculate clock rates
-
+#define BUTTON_QUEUE_LENGTH 10
+#define BUTTON_QUEUE_WRAPPER(i) ((i) & (BUTTON_QUEUE_LENGTH -1 ))
 extern volatile uint32_t gButtons;	// debounced button state, one per bit in the lowest bits
 extern uint32_t gJoystick[2];       // joystick coordinates
 extern uint32_t gADCSamplingRate;   // [Hz] actual ADC sampling rate
@@ -51,5 +52,7 @@ void ButtonReadJoystick(void);
 
 // autorepeat button presses if a button is held long enough
 uint32_t ButtonAutoRepeat(void);
-
+void process_button();
+int32_t enqueue(uint32_t button_map);
+int32_t dequeue();
 #endif /* BUTTONS_H_ */

@@ -12,7 +12,10 @@ C_SRCS += \
 ../Crystalfontz128x128_ST7735.c \
 ../HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.c \
 ../buttons.c \
+../cpu_timer.c \
+../display.c \
 ../main.c \
+../sampling.c \
 ../sysctl_pll.c \
 ../time_display.c \
 ../tm4c1294ncpdt_startup_ccs.c 
@@ -21,7 +24,10 @@ C_DEPS += \
 ./Crystalfontz128x128_ST7735.d \
 ./HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.d \
 ./buttons.d \
+./cpu_timer.d \
+./display.d \
 ./main.d \
+./sampling.d \
 ./sysctl_pll.d \
 ./time_display.d \
 ./tm4c1294ncpdt_startup_ccs.d 
@@ -30,7 +36,10 @@ OBJS += \
 ./Crystalfontz128x128_ST7735.obj \
 ./HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.obj \
 ./buttons.obj \
+./cpu_timer.obj \
+./display.obj \
 ./main.obj \
+./sampling.obj \
 ./sysctl_pll.obj \
 ./time_display.obj \
 ./tm4c1294ncpdt_startup_ccs.obj 
@@ -39,7 +48,10 @@ OBJS__QUOTED += \
 "Crystalfontz128x128_ST7735.obj" \
 "HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.obj" \
 "buttons.obj" \
+"cpu_timer.obj" \
+"display.obj" \
 "main.obj" \
+"sampling.obj" \
 "sysctl_pll.obj" \
 "time_display.obj" \
 "tm4c1294ncpdt_startup_ccs.obj" 
@@ -48,7 +60,10 @@ C_DEPS__QUOTED += \
 "Crystalfontz128x128_ST7735.d" \
 "HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.d" \
 "buttons.d" \
+"cpu_timer.d" \
+"display.d" \
 "main.d" \
+"sampling.d" \
 "sysctl_pll.d" \
 "time_display.d" \
 "tm4c1294ncpdt_startup_ccs.d" 
@@ -57,7 +72,10 @@ C_SRCS__QUOTED += \
 "../Crystalfontz128x128_ST7735.c" \
 "../HAL_EK_TM4C1294XL_Crystalfontz128x128_ST7735.c" \
 "../buttons.c" \
+"../cpu_timer.c" \
+"../display.c" \
 "../main.c" \
+"../sampling.c" \
 "../sysctl_pll.c" \
 "../time_display.c" \
 "../tm4c1294ncpdt_startup_ccs.c" 

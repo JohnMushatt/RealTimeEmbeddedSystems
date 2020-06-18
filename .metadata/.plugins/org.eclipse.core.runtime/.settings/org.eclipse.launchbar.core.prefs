@@ -1,8 +1,13 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:ece3849_b2017_lab0,org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab0_starter,org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab0_jemushatt
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:ece3849_b2017_lab0,org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab0_starter,org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab0_jemushatt,org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab1_jemushatt2,org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab2_jemushatt,org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab2_starter,org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab3_jemushatt
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:ece3849_b2017_lab0/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:ece3849_b2017_lab0/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:ece3849_events/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:ece3849_events/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab0_starter/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab2_starter/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:ece3849_lab2_starter/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:ece3849d20_lab3_jemushatt/activeLaunchMode=debug

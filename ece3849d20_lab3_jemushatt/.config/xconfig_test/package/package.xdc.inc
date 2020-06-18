@@ -1,0 +1,12 @@
+package.xdc
+package.xs
+package/xconfig_test.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b160
+package/.xdc-B06
+package/xconfig_test.java
+package/xconfig_test.class
+package/package_xconfig_test.c
+package/package.defs.h
+package/xconfig_test.ccs
